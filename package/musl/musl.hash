@@ -1,2 +1,2 @@
-# Locally calculated
-sha256	5a0160c55c540d5b90158617a57647f1b03209f58d9ee70dbce19d1115b4f1b4	musl-1.1.6.tar.gz
+# Locally calculated after checking pgp signature
+sha256	720b83c7e276b4b679c0bffe9509340d5f81fd601508e607e708177df0d31c0e  musl-1.1.12.tar.gz
