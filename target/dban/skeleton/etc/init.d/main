@@ -5,6 +5,7 @@
 
 # Strip the heading and tailing quotes from the syslinux.cfg variable.
 DBAN_NUKE=`echo $nuke | sed -e 's/^"//' | sed -e 's/"$//'`
+[ -z "$DBAN_NUKE" ] && DBAN_NUKE=dwipe
 
 # For the USB registration minimum wait.
 DBAN_USB_WAIT=$(date +%s)
