@@ -71,8 +71,8 @@ if test -x /etc/init.d/scsi-format; then
 fi
 
 # @FIXME
-lshw         >/var/log/lshw.txt
-lshw -html   >/var/log/lshw.html
+#lshw         >/var/log/lshw.txt
+#lshw -html   >/var/log/lshw.html
 lshw -xml    >/var/log/lshw.xml
 
 
@@ -106,8 +106,7 @@ dbanLog "$DBAN_NAME $DBAN_VERSION started."
 DBAN_START=`date '+%a %b %d %T %Y'`
 STARTTIME=$(date "+%Y-%m-%d %H%M")
 
-# @FIXME:
-/etc/init.d/lshw 2>/dev/null
+# Get a list of attached disks
 /etc/init.d/lshw 2>/dev/null
 
 # limit messages to KERN_ERR level
