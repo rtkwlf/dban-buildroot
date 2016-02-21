@@ -124,11 +124,13 @@ if [ $DBAN_RESULT -lt 0 ]; then
 	dbanFail "$DBAN_NAME_SHORT dwipe failed with result $DBAN_RESULT."
 fi
 
+AUTOSHUTDOWN=0
 if [ $DBAN_RESULT -eq 0 ]; then
 	# Print the success notification with emphasis.
 	echo -e "\033[1;32;40m$DBAN_NAME_SHORT succeeded."
 	echo -e "\033[1;37;40mAll selected disks have been wiped.\033[0;37;40m"
 	dbanLog "$DBAN_NAME_SHORT succeeded. All selected disks have been wiped."
+	AUTOSHUTDOWN=1
 fi
 
 if [ $DBAN_RESULT -gt 0 ]; then
@@ -344,7 +346,13 @@ fi
 
 read -t 0.1 -N 255 # Empty keyboard buffer (remove 255 chars. should be enough)
 
-read -s -p "Press ENTER to shutdown..."
+if [ $AUTOSHUTDOWN -eq 1 ]; then
+	printf "Automatic shutdown in 1 hour.\n"
+	read -t 3600 -s -p "Press ENTER to shutdown now..."
+else
+	read -s -p "Press ENTER to shutdown..."
+fi
+
 #imgshow /usr/share/dban-ad.jpg
 #echo "Press and hold the power button to shutdown."
 poweroff
