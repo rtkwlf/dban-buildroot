@@ -347,14 +347,14 @@ fi
 read -t 0.1 -N 255 # Empty keyboard buffer (remove 255 chars. should be enough)
 
 if [ $AUTOSHUTDOWN -eq 1 ]; then
-	printf "Automatic shutdown in 1 hour.\n"
-	read -t 3600 -s -p "Press ENTER to shutdown now..."
+	printf "Automatic reboot in 5 minutes.\n"
+	read -t 300 -s -p "Press ENTER to reboot now..."
 else
-	read -s -p "Press ENTER to shutdown..."
+	read -s -p "Press ENTER to reboot..."
 fi
 
 #imgshow /usr/share/dban-ad.jpg
 #echo "Press and hold the power button to shutdown."
-poweroff
+reboot
 
 # eof
